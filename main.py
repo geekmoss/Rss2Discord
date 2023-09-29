@@ -111,7 +111,7 @@ def cli(interval: int, only_build_memory: bool = False, verbose: bool = False):
 
 
 if __name__ == '__main__':
-    print('test')
+    print('Starting')
     sys.stdout.flush()
     cli()
     pass

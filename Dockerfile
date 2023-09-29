@@ -15,4 +15,4 @@ RUN poetry config virtualenvs.create false \
 
 COPY . $APP_DIR/
 
-CMD ["python", "main.py", "-v"]
+CMD ["python", "main.py"]

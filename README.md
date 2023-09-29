@@ -28,7 +28,7 @@ If you just want to create an index of existing posts to avoid spamming, then yo
 It will run a script once that just downloads the feeds and creates an index.
 Then you can run it and anything new that isn't in the index will be posted.
 
-`docker run rss2discord_app python main.py --only-build-memory`
+`docker-compose run app python main.py --only-build-memory`
 
 
 # TODO

@@ -7,4 +7,3 @@ services:
       context: .
     volumes:
       - "${PWD}/memory.msgpack:/app/memory.msgpack"
-      - "${PWD}/config.yaml:/app/config.yaml"
