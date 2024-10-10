@@ -1,0 +1,7 @@
+services:
+  job:
+    build: .
+    environment:
+      INTERVAL: 60
+    volumes:
+      - "${PWD}/memory.msgpack:/app/memory.msgpack"

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "rss": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "color": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-fA-F]{6}$"
+                },
+                "simple_link": {
+                  "type": "boolean"
+                },
+                "interval": {
+                  "type": "integer",
+                  "minimum": 10
+                }
+              },
+              "required": [
+                "url"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "webhooks": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "subs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "url",
+            "subs"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "rss",
+    "webhooks"
+  ]
+}
