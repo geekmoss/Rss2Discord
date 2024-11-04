@@ -12,6 +12,8 @@ rss:
     color: 0xefd613  # Hex value of embeds for this feed, default is this value
     simple_link: no  # If set to yes, then only links are sent (Discord will load the embed from the link), so they are plain text messages.
     interval: null   # Override crawl check interval, in minutes, minimum is 10 minutes
+    drop_html: no    # It completely discards all HTML tags that are found.
+    unwrap_html: no  # It removes the tags and leaves only their textual content in their place.
 # Hooks Configuration
 webhooks:
   name_of_webhook:

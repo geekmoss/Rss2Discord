@@ -1,4 +1,5 @@
 from Rss2Discord.Core import Memory, Timer
+from Rss2Discord.Utils.utils import drop_html_tags, unwrap_html_tags
 from Rss2Discord.parse import load, load_simple
 from Rss2Discord.Utils import revert_feeds_to_hooks, logger
 from Rss2Discord.Discord import make_embed
@@ -93,6 +94,15 @@ class CML:
         if len(new_posts) == 0:
             self.timer.set_tick(feed_name)
             return []
+
+        if feed.drop_html:
+            for p in new_posts:
+                p.summary = drop_html_tags(p.summary)
+            pass
+        elif feed.unwrap_html:
+            for p in new_posts:
+                p.summary = unwrap_html_tags(p.summary)
+            pass
 
         logger.info(f'For {feed_name} found new {len(new_posts)} posts.')
         self.mem.save_ids(feed_name, set([p.id for p in new_posts]))

@@ -14,6 +14,8 @@ class RssFeed(BaseModel):
     color: int = 0xefd613
     simple_link: bool = False
     interval: int | None = Field(ge=10, description='Crawl interval in minutes, None for global interval', default=None)
+    drop_html: bool = False
+    unwrap_html: bool = False
 
 
 def parse_yaml(file: str) -> dict[str, RssFeed]:
